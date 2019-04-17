@@ -8,7 +8,12 @@ class BoxController{
         const box = await Box.create(req.body)
         
         return res.json(box)
-    }   
+    }  
+    async list(req, res) {
+        
+        const boxess =  await Box.find();
+        return res.json(boxess)
+    }  
 
     async show(req, res) {
         const box =  await Box.findById(req.params.id).populate({
